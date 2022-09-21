@@ -10,17 +10,12 @@ function getComputerChoice() {
     const choice = choices[Math.floor(Math.random() * choices.length)]
     return choice;
 }
-
-// Game rules
-// let scorePlayer = 0;
-// let scoreComputer = 0;
-
+//Keeping score
 let scorePlayer = 0;
 let scoreComputer = 0;
 
 
 function playRound(playerSelection) {
-
 
     computerSelection = getComputerChoice();
 
@@ -43,19 +38,6 @@ function playRound(playerSelection) {
     console.log(`player picked: ${playerSelection} and computer picked: ${computerSelection}`)
 }
 
-
-function playAgain() {
-    scorePlayer = 0;
-    scoreComputer = 0;
-    playerScore.textContent = '';
-    computerScore.textContent = '';
-    winner.textContent = '';
-    buttons.forEach(el => {
-        el.disabled = false;
-    })
-}
-
-
 buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         playRound(btn.value);
@@ -73,6 +55,20 @@ buttons.forEach(btn => {
 
     })
 })
+
+
+
+function playAgain() {
+    scorePlayer = 0;
+    scoreComputer = 0;
+    playerScore.textContent = '';
+    computerScore.textContent = '';
+    winner.textContent = '';
+    buttons.forEach(el => {
+        el.disabled = false;
+    })
+}
+
 
 
 playAgainBtn.addEventListener('click', playAgain);
